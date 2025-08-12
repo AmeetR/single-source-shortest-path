@@ -1,5 +1,16 @@
 # Single-Source Shortest Path Algorithms
 
+
+This repository contains two implementations for the single-source shortest path (SSSP) problem on directed graphs with non-negative weights:
+
+* **Dijkstra** – the classic algorithm using a priority queue
+* **Band-partitioned SSSP** – an experimental implementation inspired by Duan–Mao–Mao–Shu–Yin (2025) that performs k-round relaxations within distance bands to avoid maintaining a large global order
+
+## Running the tests
+
+Tests rely on `pytest` and require `networkx` for reference distances.
+Install the dependency and run the suite:
+=======
 [![Tests](https://github.com/OWNER/single-source-shortest-path/actions/workflows/test.yml/badge.svg)](https://github.com/OWNER/single-source-shortest-path/actions/workflows/test.yml)
 
 This repository provides two reference implementations for computing shortest path
@@ -39,14 +50,25 @@ edges, and randomly generated sparse graphs.
 
 Install the required dependency and run the tests:
 
+
 ```bash
 pip install networkx
 pytest -q
 ```
 
+
+Expected output (truncated):
+
+```
+13 passed in 0.19s
+```
+
+The exact timing may vary, but all tests should pass.
+=======
 ## References
 
 - Duan, Mao, Mao, Shu, Yin (2025). *Breaking the Sorting Barrier for Directed
   Single-Source Shortest Paths.*
 - Dijkstra, E. W. (1959). *A note on two problems in connexion with graphs.*
+
 
